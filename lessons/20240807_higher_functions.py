@@ -1,5 +1,9 @@
+"""
+high order functions
+"""
 
 def add(x):
+    """A function that returns another function. Each function takes another argument"""
     def adder(y):
         return x + y
     return adder
