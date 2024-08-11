@@ -38,3 +38,27 @@ def say_hi(name):
     print(f"hi {name}")
 
 say_hi('Alice')
+
+
+"""
+another example of performance timer decorator
+"""
+
+import time
+
+def perf_timer(print_time: bool = True):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            start_time = time.time()
+            result = func(*args, **kwargs)
+            end_time = time.time()
+            print(f"func time: {(end_time - start_time):.3f}") if print_time else None
+            return result
+        return wrapper
+    return decorator
+
+@perf_timer()
+def sleep_for_a_while(sleep_time: int):
+    time.sleep(sleep_time)
+
+sleep_for_a_while(3)
