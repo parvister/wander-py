@@ -32,6 +32,7 @@ def repeat(n: int = 1):
         return wrapper
     return decorator
 
+
 @repeat(5)
 def say_hi(name):
     print(f"hi {name}")
